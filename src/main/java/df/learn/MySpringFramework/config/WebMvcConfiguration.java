@@ -41,6 +41,10 @@ import df.learn.MySpringFramework.config.web.interceptors.GlobalInterceptor;
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 	static final Map<String, MediaType> MEDIA_TYPE_MAP = new HashMap<String, MediaType>(3);
 	static final List<MediaType> MEDIA_TYPES = new ArrayList<MediaType>(3);
+	/**  
+	 * @Fields MAX_UPLOAD_FILE_SIZE : 最大上传文件大小
+	 */  
+	static final long MAX_UPLOAD_FILE_SIZE = 1024L * 1024L * 200L;
 
 	static {
 		MEDIA_TYPE_MAP.put("json", new MediaType("application", "json"));
@@ -94,8 +98,12 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		// 资源文件
-		registry.addResourceHandler("css/**", "fonts/**", "images/**", "js/**", "vendors/**", "assets/**", "app/**", "mobileRec/**").addResourceLocations("/sources/css/", "/sources/fonts/", "/sources/images/", "/sources/js/", "/sources/vendors/",
-				"/sources/assets/", "/app/", "/sources/mobileRec/");
+		registry.addResourceHandler("css/**").addResourceLocations("/sources/css/");
+		registry.addResourceHandler("fonts/**").addResourceLocations("/sources/fonts/");
+		registry.addResourceHandler("images/**").addResourceLocations("/sources/images/");
+		registry.addResourceHandler("js/**").addResourceLocations("/sources/js/");
+		registry.addResourceHandler("vendors/**").addResourceLocations("/sources/vendors/");
+		registry.addResourceHandler("assets/**").addResourceLocations("/sources/assets/");
 	}
 
 	@Override
@@ -112,7 +120,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 	@Description("for file upload")
 	public RESTfulMultipartResolver multipartResolver() {
 		RESTfulMultipartResolver resolver = new RESTfulMultipartResolver();
-		resolver.setMaxUploadSize(1024L * 1024L * 200L);
+		resolver.setMaxUploadSize(MAX_UPLOAD_FILE_SIZE);
 		resolver.setResolveLazily(true);
 		return resolver;
 	}

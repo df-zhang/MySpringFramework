@@ -1,12 +1,3 @@
-/*
- * ©2016-2017 Deen12.com All Rights Reserved.
- * 
- * 【注意】深圳市德恩移动互联网络有限公司 版权所有，本内容仅限于深圳市德恩移动互联网络有限公司内部传阅，禁止外泄以及用于其他的商业目。
- * 
- * 
- * 
- *
- */
 package df.learn.MySpringFramework.config.web;
 
 import java.io.Serializable;
@@ -19,17 +10,17 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import df.learn.MySpringFramework.commons.utils.JsonUtils;
 
 /**
- * @ClassName com.ulive3.modules.api.ApiResponse
+ * @ClassName df.learn.MySpringFramework.config.web.Response
  * 
  * @Version v1.0
- * @Date 2017年2月28日 上午1:00:07
- * @Author df.zhang@deen12.com
+ * @Date 2017年9月14日 下午1:16:51
+ * @Author 854154025@qq.com
  * 
  * @Description 国际化的Api响应数据
  * 
  */
 @JsonInclude(Include.NON_NULL)
-public class ApiResponse implements Serializable {
+public class Response implements Serializable {
 
 	/**
 	 * @Fields serialVersionUID : {@value}
@@ -39,7 +30,7 @@ public class ApiResponse implements Serializable {
 	private String message;
 	private Object data;
 
-	private ApiResponse(int code, String message, Object data) {
+	private Response(int code, String message, Object data) {
 		this.code = code;
 		this.message = message;
 		this.data = data;
@@ -69,71 +60,71 @@ public class ApiResponse implements Serializable {
 	/**
 	 * @Fields SUCCESS : 成功
 	 */
-	public static final ApiResponse SUCCESS = ApiResponseBuilder.create().status(ApiStatus.SUCCESS).build();
+	public static final Response SUCCESS = ResponseBuilder.create().status(Status.SUCCESS).build();
 	/**
 	 * @Fields FAIL : 失败
 	 */
-	public static final ApiResponse FAIL = ApiResponseBuilder.create().status(ApiStatus.FAIL).build();
+	public static final Response FAIL = ResponseBuilder.create().status(Status.FAIL).build();
 	/**
 	 * @Fields PARAM_INVALID : 参数值不匹配
 	 */
-	public static final ApiResponse PARAM_INVALID = ApiResponseBuilder.create().status(ApiStatus.PARAM_INVALID).build();
+	public static final Response PARAM_INVALID = ResponseBuilder.create().status(Status.PARAM_INVALID).build();
 	/**
 	 * @Fields PARAM_LEN_TOO_SHORT : 参数值过短
 	 */
-	public static final ApiResponse PARAM_LEN_TOO_SHORT = ApiResponseBuilder.create().status(ApiStatus.PARAM_LEN_TOO_SHORT).build();
+	public static final Response PARAM_LEN_TOO_SHORT = ResponseBuilder.create().status(Status.PARAM_LEN_TOO_SHORT).build();
 	/**
 	 * @Fields PARAM_LEN_TOO_LONG : 参数值过长
 	 */
-	public static final ApiResponse PARAM_LEN_TOO_LONG = ApiResponseBuilder.create().status(ApiStatus.PARAM_LEN_TOO_LONG).build();
+	public static final Response PARAM_LEN_TOO_LONG = ResponseBuilder.create().status(Status.PARAM_LEN_TOO_LONG).build();
 	/**
 	 * @Fields AUTH_EXPIRED : 授权失效，需重新登录
 	 */
-	public static final ApiResponse AUTH_EXPIRED = ApiResponseBuilder.create().status(ApiStatus.AUTH_EXPIRED).build();
-	public static final ApiResponse NO_PERMISSION = ApiResponseBuilder.create().status(ApiStatus.NO_PERMISSION).build();
-	public static final ApiResponse NOT_FOUND = ApiResponseBuilder.create().status(ApiStatus.NOT_FOUND).build();
-	public static final ApiResponse EXISTED = ApiResponseBuilder.create().status(ApiStatus.EXISTED).build();
-	public static final ApiResponse EXCEPTION = ApiResponseBuilder.create().status(ApiStatus.EXCEPTION).build();
-	public static final ApiResponse PASSWORD_INCORRECT = ApiResponseBuilder.create().status(ApiStatus.PASSWORD_INCORRECT).build();
+	public static final Response AUTH_EXPIRED = ResponseBuilder.create().status(Status.AUTH_EXPIRED).build();
+	public static final Response NO_PERMISSION = ResponseBuilder.create().status(Status.NO_PERMISSION).build();
+	public static final Response NOT_FOUND = ResponseBuilder.create().status(Status.NOT_FOUND).build();
+	public static final Response EXISTED = ResponseBuilder.create().status(Status.EXISTED).build();
+	public static final Response EXCEPTION = ResponseBuilder.create().status(Status.EXCEPTION).build();
+	public static final Response PASSWORD_INCORRECT = ResponseBuilder.create().status(Status.PASSWORD_INCORRECT).build();
 	/**
 	 * @Fields MAXCODE : 默认最大code值
 	 */
-	public static final ApiResponse MAXCODE = ApiResponseBuilder.create().status(ApiStatus.MAXCODE).build();
-	
+	public static final Response MAXCODE = ResponseBuilder.create().status(Status.MAXCODE).build();
+
 	public String toJsonString() {
 		return JsonUtils.toJsonString(this);
 	}
 
 	/**
-	 * @ClassName com.ulive3.modules.api.ApiResponseBuilder
+	 * @ClassName com.ulive3.modules.api.ResponseBuilder
 	 * 
 	 * @Version v1.0
 	 * @Date 2017年2月28日 下午11:38:48
 	 * @Author df.zhang@deen12.com
 	 * 
-	 * @Description ApiResponseBuilder，{@link ApiResponse} 构造器，默认status=SUCCESS
+	 * @Description ResponseBuilder，{@link Response} 构造器，默认status=SUCCESS
 	 * 
 	 */
-	public static class ApiResponseBuilder {
-		private ApiStatus status;
+	public static class ResponseBuilder {
+		private Status status;
 		private int code;
 		private String message;
 		private String resource;
 		private String parameter;
 		private Object data;
 
-		public static ApiResponseBuilder create() {
-			return new ApiResponseBuilder();
+		public static ResponseBuilder create() {
+			return new ResponseBuilder();
 		}
 
-		private ApiResponseBuilder() {
+		private ResponseBuilder() {
 		}
 
-		public ApiStatus status() {
+		public Status status() {
 			return this.status;
 		}
 
-		public ApiResponseBuilder status(ApiStatus apiStatus) {
+		public ResponseBuilder status(Status apiStatus) {
 			this.status = apiStatus;
 			return this;
 		}
@@ -142,7 +133,7 @@ public class ApiResponse implements Serializable {
 			return this.code;
 		}
 
-		public ApiResponseBuilder code(int code) {
+		public ResponseBuilder code(int code) {
 			this.code = code;
 			return this;
 		}
@@ -151,7 +142,7 @@ public class ApiResponse implements Serializable {
 			return this.message;
 		}
 
-		public ApiResponseBuilder message(String message) {
+		public ResponseBuilder message(String message) {
 			this.message = message;
 			return this;
 		}
@@ -160,7 +151,7 @@ public class ApiResponse implements Serializable {
 			return this.resource;
 		}
 
-		public ApiResponseBuilder resource(String resource) {
+		public ResponseBuilder resource(String resource) {
 			this.resource = resource;
 			return this;
 		}
@@ -169,7 +160,7 @@ public class ApiResponse implements Serializable {
 			return this.parameter;
 		}
 
-		public ApiResponseBuilder parameter(String parameter) {
+		public ResponseBuilder parameter(String parameter) {
 			this.parameter = parameter;
 			return this;
 		}
@@ -178,15 +169,15 @@ public class ApiResponse implements Serializable {
 			return this.data;
 		}
 
-		public ApiResponseBuilder data(Object data) {
+		public ResponseBuilder data(Object data) {
 			this.data = data;
 			return this;
 		}
 
-		public ApiResponse build() {
+		public Response build() {
 			if (code == 0) {
 				if (status == null) {
-					status = ApiStatus.SUCCESS;
+					status = Status.SUCCESS;
 				}
 				code = status.code();
 				resource = status.resource();
@@ -200,7 +191,7 @@ public class ApiResponse implements Serializable {
 					if (status == null) {
 						// 那么code 不为0
 						try {
-							status = ApiStatus.findByCode(code);
+							status = Status.findByCode(code);
 							resource = status.resource();
 							message = resource; // TODO
 						} catch (IllegalArgumentException e) {
@@ -212,7 +203,7 @@ public class ApiResponse implements Serializable {
 			if (StringUtils.isNotEmpty(parameter)) {
 				message += "{" + parameter + "}";
 			}
-			return new ApiResponse(code, message, data);
+			return new Response(code, message, data);
 		}
 	}
 }

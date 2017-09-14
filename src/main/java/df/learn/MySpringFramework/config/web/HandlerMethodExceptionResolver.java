@@ -29,16 +29,20 @@ import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMeth
 import df.learn.MySpringFramework.commons.JsonException;
 import df.learn.MySpringFramework.commons.utils.HttpUtils;
 import df.learn.MySpringFramework.config.ApplicationConfiguration;
-import df.learn.MySpringFramework.config.web.ApiResponse.ApiResponseBuilder;
+import df.learn.MySpringFramework.config.web.Response.ResponseBuilder;
 
 /**
- * 不必在Controller中对异常进行处理，抛出即可，由此异常解析器统一控制。<br>
+ * @ClassName df.learn.MySpringFramework.config.web.HandlerMethodExceptionResolver
+ * 
+ * @Version v1.0
+ * @Date 2017年9月13日 下午10:36:37
+ * @Author 854154025@qq.com
+ * 
+ * @Description 不必在Controller中对异常进行处理，抛出即可，由此异常解析器统一控制。<br>
  * ajax请求（有@ResponseBody的Controller）发生错误，输出JSON。<br>
  * 页面请求（无@ResponseBody的Controller）发生错误，输出错误页面。<br>
  * 需要与AnnotationMethodHandlerAdapter使用同一个messageConverters<br>
  * Controller中需要有专门处理异常的方法。
- * 
- * @author zdf
  */
 public class HandlerMethodExceptionResolver extends ExceptionHandlerExceptionResolver {
 	private static Logger logger = Logger.getLogger(HandlerMethodExceptionResolver.class);
@@ -102,7 +106,7 @@ public class HandlerMethodExceptionResolver extends ExceptionHandlerExceptionRes
 		}
 
 		// 如果是返回Response
-		if (handlerMethod.getReturnType().getParameterType() == ApiResponse.class) {
+		if (handlerMethod.getReturnType().getParameterType() == Response.class) {
 			return handleResponse(request, response, exception);
 		}
 		// 如果方法上有标记ResponseBody
@@ -140,7 +144,7 @@ public class HandlerMethodExceptionResolver extends ExceptionHandlerExceptionRes
 				// 判断请求数据类型
 			}
 
-			out.write(ApiResponseBuilder.create().status(ApiStatus.EXCEPTION).message(exception.getClass().getName()).data(exception.getMessage()).build().toJsonString().getBytes(ApplicationConfiguration.APP_CHARSET));
+			out.write(ResponseBuilder.create().status(Status.EXCEPTION).message(exception.getClass().getName()).data(exception.getMessage()).build().toJsonString().getBytes(ApplicationConfiguration.APP_CHARSET));
 			out.flush();
 			response.flushBuffer();
 		} catch (IOException e) {

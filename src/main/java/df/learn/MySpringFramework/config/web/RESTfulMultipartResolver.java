@@ -7,9 +7,14 @@ import org.apache.commons.fileupload.servlet.ServletRequestContext;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 /**
- * For upload file with PUT method
- * @author zdf
- *
+ * @ClassName df.learn.MySpringFramework.config.web.RESTfulMultipartResolver  
+ * 
+ * @Version v1.0
+ * @Date 2017年9月14日 下午4:35:28 
+ * @Author 854154025@qq.com
+ * 
+ * @Description 自定义的MultipartResolver，支持PUT上传
+ * 
  */
 public class RESTfulMultipartResolver extends CommonsMultipartResolver {
 	/**

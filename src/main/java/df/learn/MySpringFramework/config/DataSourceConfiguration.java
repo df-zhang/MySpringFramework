@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariDataSource;
 
 import df.learn.MySpringFramework.commons.properties.PropertyProcessor;
+import df.learn.MySpringFramework.config.db.HibernateJpaIsolationSupportDialect;
 import df.learn.MySpringFramework.config.db.HikariDatabase;
 
 @Configuration
@@ -184,6 +185,13 @@ public class DataSourceConfiguration {
 		return new HibernatePersistenceProvider();
 	}
 
+	/**  
+	 * @Methods jpaDialect  
+	 * 
+	 * @return 
+	 * 
+	 * @Description 让JPA支持Hibernate事务
+	 */
 	@Bean
 	public JpaDialect jpaDialect() {
 		return new HibernateJpaIsolationSupportDialect();

@@ -4,7 +4,6 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-
 public final class WebThreadPoolScheduler {
 
 	private static WebThreadPoolScheduler manager = new WebThreadPoolScheduler();

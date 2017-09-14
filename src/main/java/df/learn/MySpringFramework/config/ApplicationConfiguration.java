@@ -28,7 +28,7 @@ import df.learn.MySpringFramework.config.web.SpringContextInitializeListener;
 @Configuration // 标注为Spring配置文件，等同于spring-xxx.xml
 @EnableScheduling // 启用Spring-Schedule
 @EnableCaching // 同理 启用Spring-Cache
-// 扫描包，包路径指定后，会将包内的所有类实例化并缓存到Spring容易中，供Ioc注入
+// 扫描包，包路径指定后，会将包内的所有类实例化并缓存到Spring容器中，供Ioc注入
 @ComponentScan(basePackages = { ApplicationConfiguration.PACKAGE_SERVICES, ApplicationConfiguration.PACKAGES_QUARTZ })
 public class ApplicationConfiguration {
 	/**
@@ -43,7 +43,7 @@ public class ApplicationConfiguration {
 	/**
 	 * 定义包名路径常量，通常不会有太大变化
 	 */
-	private static final String BASE_PACKAGE = "df.learn.MySpringFramework.modules.*.";
+	private static final String BASE_PACKAGE = "df.learn.MySpringFramework.modules.";
 	// 实体层包名
 	public static final String PACKAGE_BEANS = BASE_PACKAGE + "entities";
 	// 业务层包名

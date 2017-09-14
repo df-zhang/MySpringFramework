@@ -4,15 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @ClassName com.ulive3.modules.ApiStatus
+ * @ClassName df.learn.MySpringFramework.config.web.Status
  * 
  * @Version v1.0
- * @Date 2017年2月28日 上午1:00:30
- * @Author 84154025@qq.com
+ * @Date 2017年9月14日 下午1:16:36
+ * @Author 854154025@qq.com
  * 
  * @Description 状态值2000~9999
+ * 
  */
-public enum ApiStatus {
+public enum Status {
 	// basic 2000~ 2099
 	/**
 	 * @Fields SUCCESS : 成功
@@ -75,7 +76,7 @@ public enum ApiStatus {
 	private final int code;
 	private final String resource;
 
-	private ApiStatus(int code, String resource) {
+	private Status(int code, String resource) {
 		this.code = code;
 		this.resource = resource;
 	}
@@ -88,8 +89,8 @@ public enum ApiStatus {
 		return this.resource;
 	}
 
-	public static ApiStatus findByCode(int code) {
-		for (ApiStatus rs : values()) {
+	public static Status findByCode(int code) {
+		for (Status rs : values()) {
 			if (rs.code == code) {
 				return rs;
 			}
@@ -99,7 +100,7 @@ public enum ApiStatus {
 
 	public static Map<Integer, String> all2Map() {
 		Map<Integer, String> map = new HashMap<Integer, String>();
-		for (ApiStatus t : ApiStatus.values()) {
+		for (Status t : Status.values()) {
 			map.put(t.code, t.resource);
 		}
 		return map;

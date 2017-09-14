@@ -1,4 +1,4 @@
-package df.learn.MySpringFramework.config;
+package df.learn.MySpringFramework.config.db;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,6 +14,17 @@ import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionException;
 
+/**
+ * @ClassName df.learn.MySpringFramework.config.HibernateJpaIsolationSupportDialect  
+ * 
+ * @Version v1.0
+ * @Date 2017年9月13日 下午10:38:37 
+ * @Author 854154025@qq.com
+ * 
+ * @Description 让JPA支持Hibernate事务 
+ * https://my.oschina.net/yybear/blog/101256
+ * 
+ */
 public class HibernateJpaIsolationSupportDialect extends HibernateJpaDialect {
 	private static final long serialVersionUID = 1L;
 
