@@ -100,7 +100,7 @@ public class Response implements Serializable {
 	 * 
 	 * @Version v1.0
 	 * @Date 2017年2月28日 下午11:38:48
-	 * @Author df.zhang@deen12.com
+	 * 
 	 * 
 	 * @Description ResponseBuilder，{@link Response} 构造器，默认status=SUCCESS
 	 * 

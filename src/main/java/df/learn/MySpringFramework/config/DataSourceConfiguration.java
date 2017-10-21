@@ -26,9 +26,9 @@ import df.learn.MySpringFramework.config.db.HikariDatabase;
 
 @Configuration
 @Description("use jpa")
-@EnableAspectJAutoProxy
-@EnableTransactionManagement(proxyTargetClass = true)
-@EnableJpaRepositories(basePackages = ApplicationConfiguration.PACKAGES_REPOSITORIES)
+@EnableAspectJAutoProxy//开启AOP
+@EnableTransactionManagement(proxyTargetClass = true) //开启事务
+@EnableJpaRepositories(basePackages = ApplicationConfiguration.PACKAGES_REPOSITORIES) //数据库访问类包路径
 public class DataSourceConfiguration {
 
 	/**

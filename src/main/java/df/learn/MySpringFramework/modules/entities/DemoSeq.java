@@ -1,12 +1,3 @@
-/*
- * ©2016-2017 Deen12.com All Rights Reserved.
- * 
- * 【注意】深圳市德恩移动互联网络有限公司 版权所有，本内容仅限于深圳市德恩移动互联网络有限公司内部传阅，禁止外泄以及用于其他的商业目。
- * 
- * 
- * 
- *
- */
 package df.learn.MySpringFramework.modules.entities;
 
 import javax.persistence.Entity;

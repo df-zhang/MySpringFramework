@@ -23,7 +23,7 @@ public interface StorageService {
 	/**
 	 * 默认存储主目录
 	 */
-	// public static final String STORAGE_BUCKETNAME = "deen";
+	// public static final String STORAGE_BUCKETNAME = "";
 
 	/**
 	 * 返回当前存储类型。 如：aliyun、local、amazon s3、qcloud

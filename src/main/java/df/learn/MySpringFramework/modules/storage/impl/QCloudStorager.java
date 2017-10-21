@@ -33,7 +33,7 @@ import df.learn.MySpringFramework.modules.storage.Store;
  * 
  * @Version v1.0
  * @Date 2017年3月29日 上午3:42:01
- * @Author df.zhang@deen12.com
+ * 
  * 
  * @Description TODO 注意函数{@link CommonParamCheckUtils#AssertLegalCosFilePath(String)}，key必须以/开头
  */

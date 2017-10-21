@@ -55,5 +55,4 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
 		servletContext.addListener(SessionListener.class);
 		super.onStartup(servletContext);
 	}
-
 }
